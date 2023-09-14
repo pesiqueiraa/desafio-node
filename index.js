@@ -15,9 +15,9 @@ app.get('/orders', (request, response) => {
 
 app.post('/orders', (request, response) => {
 
-    const { order, clienteName, price, status } = request.body
+    const { order, userName, price, status } = request.body
 
-    const userOrders = { id: uuid.v4(), order, clienteName, price, status }
+    const userOrders = { id: uuid.v4(), order, userName, price, status }
 
     orders.push(userOrders)
 
@@ -27,9 +27,9 @@ app.post('/orders', (request, response) => {
 app.put('/orders/:id', (request, response) => {
 
     const { id } = request.params
-    const { order, clienteName, price, status } = request.body
+    const { order, userName, price, status } = request.body
 
-    const updateUser = { id, order, clienteName, price, status }
+    const updateUser = { id, order, userName, price, status }
 
     const index = orders.findIndex(order => order.id === id)
 
@@ -95,5 +95,5 @@ app.patch('/orders/:id', (request, response) => {
 
 
 app.listen(port, () => {
-    console.log(`🚀 Server started on port ${port}`)
+    console.log(`Server started`)
 })
